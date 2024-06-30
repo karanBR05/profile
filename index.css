@@ -449,7 +449,7 @@ h3{
 }
 
 /* ----- CONTACT FORM ----- */
-.form-control{
+/*.form-control{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -478,7 +478,7 @@ textarea{
     padding: 15px 20px;
     outline: none;
     resize: none;
-}
+} */
 .form-button>.btn{
     display: flex;
     align-items: center;
