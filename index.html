@@ -4,269 +4,852 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- --------- UNICONS ---------- -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Karan Kumar | Digital Visiting Card</title>
 
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="index.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <!-- Unicons -->
+    <link rel="stylesheet"
+          href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-    <title>Portfolio | karan</title>
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+
+        /* =========================
+           DIGITAL CARD
+        ========================= */
+
+        .card {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow:
+                0 20px 50px rgba(31, 45, 61, 0.12);
+            border: 1px solid #e9edf3;
+        }
+
+
+        /* =========================
+           CARD HEADER
+        ========================= */
+
+        .card-header {
+            position: relative;
+            background:
+                linear-gradient(135deg, #eef7ff, #ffffff);
+            padding: 35px 25px 28px;
+            text-align: center;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .profile {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .online {
+            position: absolute;
+            right: 7px;
+            bottom: 9px;
+            width: 18px;
+            height: 18px;
+            background: #25c46a;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #18202a;
+            margin-bottom: 5px;
+        }
+
+        .designation {
+            color: #536dfe;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CARD BODY
+        ========================= */
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #202936;
+            margin-bottom: 12px;
+        }
+
+        .section-title i {
+            color: #536dfe;
+            font-size: 19px;
+        }
+
+
+        /* =========================
+           INTRODUCTION
+        ========================= */
+
+        .intro {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #687384;
+            text-align: left;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px;
+            background: #f8fafc;
+            border: 1px solid #edf0f4;
+            border-radius: 14px;
+        }
+
+        .education-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2ff;
+            color: #536dfe;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        .education-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #263238;
+        }
+
+        .education-info p {
+            font-size: 11px;
+            color: #7a8492;
+            margin-top: 3px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .skill {
+            padding: 6px 11px;
+            background: #f1f5ff;
+            color: #536dfe;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #e4eaff;
+        }
+
+
+        /* =========================
+           CONTACT BUTTONS
+        ========================= */
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 10px;
+            border-radius: 13px;
+            border: 1px solid #e6eaf0;
+            background: #ffffff;
+            color: #344054;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .contact-btn i {
+            font-size: 18px;
+            color: #536dfe;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(0,0,0,0.08);
+            border-color: #d8def0;
+        }
+
+
+        /* =========================
+           SOCIAL LINKS
+        ========================= */
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 9px;
+        }
+
+        .social {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #f8fafc;
+            border: 1px solid #edf0f4;
+            transition: 0.25s ease;
+        }
+
+        .social i {
+            font-size: 21px;
+            color: #536dfe;
+        }
+
+        .social:hover {
+            transform: translateY(-3px);
+            background: #eef2ff;
+        }
+
+
+        /* =========================
+           SHARE / SAVE
+        ========================= */
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            border: none;
+            border-radius: 13px;
+            padding: 13px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            transition: 0.25s ease;
+        }
+
+        .save-btn {
+            background: #536dfe;
+            color: white;
+        }
+
+        .share-btn {
+            background: #eef2ff;
+            color: #536dfe;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .card-footer {
+            text-align: center;
+            padding: 16px 20px;
+            background: #fafbfd;
+            border-top: 1px solid #edf0f4;
+        }
+
+        .card-footer p {
+            font-size: 10px;
+            color: #98a1ae;
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%) translateY(100px);
+            background: #202936;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            opacity: 0;
+            transition: 0.3s ease;
+            z-index: 9999;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .page {
+                padding: 15px 10px;
+                align-items: flex-start;
+            }
+
+            .card {
+                border-radius: 22px;
+            }
+
+            .card-header {
+                padding: 30px 20px 25px;
+            }
+
+            .profile {
+                width: 110px;
+                height: 110px;
+            }
+
+            .name {
+                font-size: 25px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .social-links {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
-   <div class="container">
-    <!-- --------------- HEADER --------------- -->
-      <nav id="header">
-        <div class="nav-logo">
-            <p class="nav-name">Karan Kumar</p>
-            <span></span>
+
+<div class="page">
+
+    <div class="card">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <div class="card-header">
+
+            <div class="profile-wrapper">
+
+                <!-- Replace with your photo -->
+                <img
+                    src="IMG-2292~3.jpg"
+                    alt="Karan Kumar"
+                    class="profile"
+                >
+
+                <span class="online"></span>
+
+            </div>
+
+            <h1 class="name">Karan Kumar</h1>
+
+            <p class="designation">
+                DevOps Engineer
+            </p>
+
+            <p class="tagline">
+                Building digital solutions with technology,
+                creativity and innovation.
+            </p>
+
         </div>
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link ">About</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link ">Projects</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link ">Contact</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-button">
-          <!--  <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>  >-->  
-        </div>
-        <div class="nav-menu-btn">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
 
 
-    <!-- -------------- MAIN ---------------- -->
-    <main class="wrapper">
-       <!-- -------------- FEATURED BOX ---------------- -->
-       <section class="featured-box" id="home">
-          <div class="featured-text">
-            <div class="featured-text-card">
-                <span>karan kumar</span>
-            </div>
-            <div class="featured-name">
-                <p>I'm <span developer class="typedText"></span></p>
-            </div>
-            <div class="featured-text-info">
-                <p>Experienced frontend developer with a passion for creating visually stunning
-                   and user-friendly websites.
+        <!-- =========================
+             BODY
+        ========================== -->
+
+        <div class="card-body">
+
+
+            <!-- INTRODUCTION -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    <i class="uil uil-user"></i>
+                    About Me
+                </div>
+
+                <p class="intro">
+                    I am an IT developer and technology enthusiast
+                    with experience in web development and modern
+                    software technologies. I work on creating
+                    responsive, user-friendly and practical digital
+                    solutions for individuals, businesses and
+                    organizations.
                 </p>
-            </div>
-           <!--  <div class="featured-text-btn">
-                <button class="btn blue-btn">Contact Me</button>
-                </div> -->
-            <div class="social_icons">
-                <div class="icon">
-                    <a href="https://www.linkedin.com/in/karankumar1903/">  <i  class="uil uil-linkedin-alt"></i></a></div>
-                <div class="icon"><a href="https://github.com/karanBR05/"> <i class="uil uil-github-alt"></i></a></div>
-            </div>
-          </div>
-          <div class="featured-image">
-            <div class="image">
-                <img src="IMG-2292~3.jpg" alt="avatar">
-            </div>
-          </div>
-          <div class="scroll-icon-box">
-            <a href="#about" class="scroll-btn">
-                <i class="uil uil-mouse-alt"></i>
-                <p>Scroll Down</p>
-            </a>
-          </div>
 
-       </section>
-       <!-- -------------- ABOUT BOX ---------------- -->
-       <section class="section" id="about">
-          <div class="top-header">
-            <h1>About Me</h1>
-          </div>
-          <div class="row">
-            <div class="col">
-                <div class="about-info">
-                    <h3>My introduction</h3>
-                    <p>I am well-versed in HTML, CSS and JavaScript , and other cutting edge
-                       frameworks and libraries,which allows me to implement interactive features.
-                       Additionally, I have experirence working with content management systems (CMS) like
-                       WordPress.
-                    </p>
-                    </div>
             </div>
-            <div class="col">
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Frontend</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Bootstrap</span>
-                        <span>JavaScript</span>
-                        <span>Vue</span>
-                        <span>React</span>
-                    </div>
+
+
+            <!-- EDUCATION -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    <i class="uil uil-graduation-cap"></i>
+                    Education Qualification
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Backend</h3>
+
+                <div class="education">
+
+                    <!-- Update these with your exact qualifications -->
+
+                    <div class="education-item">
+
+                        <div class="education-icon">
+                            <i class="uil uil-university"></i>
+                        </div>
+
+                        <div class="education-info">
+
+                            <h4>
+                                Bachelor of Technology (B.Tech)
+                            </h4>
+
+                            <p>
+                                Engineering
+                            </p>
+
+                        </div>
+
                     </div>
-                    <div class="skills-list">
-                        <span>PHP</span>
-                        <span>JAVA</span>
-                        <span>Python</span>
-                        <span>C++</span>
+
+
+                    <div class="education-item">
+
+                        <div class="education-icon">
+                            <i class="uil uil-book-open"></i>
+                        </div>
+
+                        <div class="education-info">
+
+                            <h4>
+                                Engineering / Technical Education
+                            </h4>
+
+                            <p>
+                                Technology & Computer Applications
+                            </p>
+
+                        </div>
+
                     </div>
+
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Database</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>MySQL</span>
-                        <span>MongoDB</span>
-                    </div>
+
+            </div>
+
+
+           
+            <!-- CONTACT -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    <i class="uil uil-phone"></i>
+                    Contact Me
                 </div>
-            </div>
-          </div>
-       </section>
 
-       <!-- -------------- PROJECT BOX ---------------- -->
+                <div class="contact-buttons">
 
-       <section class="section" id="projects">
-          <div class="top-header">
-              <h1>Projects</h1>
-          </div>
-          <div class="project-container">
-            <div class="project-box">
-                <i class="uil uil-briefcase-alt"></i>
-                <h3>Completed</h3>
-                <label>9+ Finished Projects</label>
-            </div>
-            <div class="project-box">
-                <i class="uil uil-users-alt"></i>
-                <h3>Clients</h3>
-                <label>2+ Happy Clients</label>
-            </div>
-            <div class="project-box">
-                <i class="uil uil-award"></i>
-                <h3>Experience</h3>
-                <label>1+ Years in the field</label>
-            </div>
-          </div>
-       </section>
+                    <!-- Phone -->
+                    <a
+                        href="tel:+919472146511"
+                        class="contact-btn"
+                    >
+                        <i class="uil uil-phone"></i>
+                        Call
+                    </a>
 
-       <!-- -------------- CONTACT BOX ---------------- -->
 
-       <section class="section" id="contact">
-          <div class="top-header">
-            <h1>Get in touch</h1>
-            <span>Do you have a project in your mind, contact me here</span>
-          </div>
-          <div class="row">
-             <div class="col"> 
-                <div class="contact-info">
-                    <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> Email: karankumar.19march@gmail.com</p>
-                   <!-- <p><i class="uil uil-phone"></i> Tel: +91 </p>  -->
+                    <!-- WhatsApp -->
+                    <a
+                        href="https://wa.me/919472146511"
+                        target="_blank"
+                        class="contact-btn"
+                    >
+                        <i class="uil uil-whatsapp"></i>
+                        WhatsApp
+                    </a>
+
+
+                    <!-- Email -->
+                    <a
+                        href="mailto:karankumar.19march@gmail.com"
+                        class="contact-btn"
+                    >
+                        <i class="uil uil-envelope"></i>
+                        Email
+                    </a>
+
+
+                    <!-- SMS -->
+                    <a
+                        href="sms:+919472146511"
+                        class="contact-btn"
+                    >
+                        <i class="uil uil-comment"></i>
+                        Message
+                    </a>
+
                 </div>
-             </div>
-              </div>
-                 <br>
-                    <div class="form-button">
-                        <button class="btn">contact me <i class="uil uil-message"> </i></button>
-                    </div> 
-   <!-- <div class="input-row">
-      <label>Name <em></em></label> 
-      <input type="text" name="userName"class="input-field" required id="userName"> 
+
+            </div>
+
+
+            <!-- SOCIAL LINKS -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    <i class="uil uil-link"></i>
+                    Connect With Me
+                </div>
+
+                <div class="social-links">
+
+                    <!-- LinkedIn -->
+                    <a
+                        href="https://www.linkedin.com/in/karankumar1903/"
+                        target="_blank"
+                        class="social"
+                        title="LinkedIn"
+                    >
+                        <i class="uil uil-linkedin"></i>
+                    </a>
+
+
+                    <!-- GitHub -->
+                    <a
+                        href="https://github.com/karanBR05/"
+                        target="_blank"
+                        class="social"
+                        title="GitHub"
+                    >
+                        <i class="uil uil-github"></i>
+                    </a>
+
+
+                    <!-- ResearchGate -->
+                    <a
+                        href="https://www.researchgate.net/"
+                        target="_blank"
+                        class="social"
+                        title="ResearchGate"
+                    >
+                        <i class="uil uil-flask"></i>
+                    </a>
+
+
+                    <!-- Email -->
+                    <a
+                        href="mailto:karankumar.19march@gmail.com"
+                        class="social"
+                        title="Email"
+                    >
+                        <i class="uil uil-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="action-buttons">
+
+                <button
+                    class="action-btn save-btn"
+                    onclick="saveContact()"
+                >
+                    <i class="uil uil-import"></i>
+                    Save Contact
+                </button>
+
+
+                <button
+                    class="action-btn share-btn"
+                    onclick="shareCard()"
+                >
+                    <i class="uil uil-share-alt"></i>
+                    Share Card
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <div class="card-footer">
+
+            <p>
+                © 2026 Karan Kumar • Digital Visiting Card
+            </p>
+
+        </div>
+
     </div>
-    <div class="input-row">
-      <label>Email <em></em></label> 
-      <input type="email" name="userEmail" class="input-field"required id="userEmail"> 
-    </div>
-    <div class="input-row">
-      <label>Phone <em></em></label> 
-      <input type="text" name="userPhone"class="input-field" required id="userPhone">
-    </div>
-    <div class="input-row">
-      <label>Message <em></em></label> 
-      <textarea name="userMessage" required id="userMessage"></textarea>
-    </div>
-    <div class="input-row">
-      <input type="submit" name="send" value="Submit">
-      <?php if (! empty($message)) {?>
-      <div class='success'>
-        <strong><?php echo $message; ?>	</strong>
-      </div>
-      <?php } ?>
-    </div>
-  </form> -->
+
 </div>
-                </div>
-             </div>
-          </div>
-       </section>
-
-    </main>
 
 
-    <!-- --------------- FOOTER --------------- -->
-    <footer>
-        <div class="top-footer">
-            <p>Karan Kumar</p>
-        </div>
-        <div class="middle-footer">
-            <ul class="footer-menu">
-                <li class="footer_menu_list">
-                    <a href="#home">Home</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#about">About</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#projects">Projects</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-social-icons">
-            <div class="icon"><a href="https://www.linkedin.com/in/karankumar1903/">   <i class="uil uil-linkedin-alt"></i></a></div>
-            <div class="icon"><a href="https://github.com/karanBR05"> <i class="uil uil-github-alt"></i></a></div>
-        </div>
-        <div class="bottom-footer">
-            <p>© Copyright &copy; <a href="#home" style="text-decoration: none;">KaranBR05™</a> - All rights reserved</p>
-        </div>
-        
-    </footer>
+<!-- TOAST -->
 
-    </div>
-
-    
+<div id="toast" class="toast">
+    Contact saved successfully!
+</div>
 
 
-    <!-- ----- TYPING JS Link ----- -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
 
-       <!-- ----- SCROLL REVEAL JS Link----- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    /* =========================
+       SAVE CONTACT
+    ========================= */
 
-    <!-- ----- MAIN JS ----- -->
-    <script src="index.js"></script>
+    function saveContact() {
+
+        const vCard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Karan Kumar
+N:Kumar;Karan;;;
+ORG:IT Developer
+TITLE:IT Developer | Web Developer
+TEL;TYPE=CELL:+919472146511
+EMAIL:karankumar.19march@gmail.com
+URL:https://www.linkedin.com/in/karankumar1903/
+URL:https://github.com/karanBR05/
+END:VCARD`;
+
+        const blob = new Blob(
+            [vCard],
+            { type: "text/vcard" }
+        );
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = "Karan-Kumar-Contact.vcf";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+
+        showToast("Contact card created!");
+    }
+
+
+    /* =========================
+       SHARE CARD
+    ========================== */
+
+    async function shareCard() {
+
+        const shareData = {
+
+            title: "Karan Kumar - Digital Visiting Card",
+
+            text:
+                "Connect with Karan Kumar | IT Developer | Web Developer",
+
+            url: window.location.href
+
+        };
+
+
+        if (navigator.share) {
+
+            try {
+
+                await navigator.share(shareData);
+
+            } catch (error) {
+
+                console.log("Sharing cancelled");
+
+            }
+
+        } else {
+
+            copyPageLink();
+
+        }
+
+    }
+
+
+    /* =========================
+       COPY LINK
+    ========================== */
+
+    function copyPageLink() {
+
+        navigator.clipboard.writeText(
+            window.location.href
+        );
+
+        showToast("Card link copied!");
+
+    }
+
+
+    /* =========================
+       TOAST MESSAGE
+    ========================== */
+
+    function showToast(message) {
+
+        const toast =
+            document.getElementById("toast");
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+</script>
+
 </body>
 </html>
-
+```
