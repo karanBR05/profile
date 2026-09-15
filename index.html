@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Karan Kumar | Digital Visiting Card</title>
+    <title>Karan Kumar</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -388,6 +388,7 @@
             opacity: 0;
             transition: 0.3s ease;
             z-index: 9999;
+            white-space: nowrap;
         }
 
         .toast.show {
@@ -451,7 +452,7 @@
 
             <div class="profile-wrapper">
 
-                <!-- Replace with your photo -->
+                <!-- Profile Photo -->
                 <img
                     src="IMG-2292~3.jpg"
                     alt="Karan Kumar"
@@ -493,77 +494,16 @@
                 </div>
 
                 <p class="intro">
-                    I am an IT developer and technology enthusiast
-                    with experience in web development and modern
-                    software technologies. I work on creating
-                    responsive, user-friendly and practical digital
-                    solutions for individuals, businesses and
-                    organizations.
+                    I’m a DevOps Engineer and technology-driven leader focused on building scalable, secure, and automated cloud infrastructure. I combine cloud engineering, CI/CD, Linux, containerization, and automation to drive reliable systems, efficient delivery, and high-performance digital solutions.
+
                 </p>
 
             </div>
 
 
-            <!-- EDUCATION -->
-
-            <div class="section">
-
-                <div class="section-title">
-                    <i class="uil uil-graduation-cap"></i>
-                    Education Qualification
-                </div>
-
-                <div class="education">
-
-                    <!-- Update these with your exact qualifications -->
-
-                    <div class="education-item">
-
-                        <div class="education-icon">
-                            <i class="uil uil-university"></i>
-                        </div>
-
-                        <div class="education-info">
-
-                            <h4>
-                                Bachelor of Technology (B.Tech)
-                            </h4>
-
-                            <p>
-                                Engineering
-                            </p>
-
-                        </div>
-
-                    </div>
+            
 
 
-                    <div class="education-item">
-
-                        <div class="education-icon">
-                            <i class="uil uil-book-open"></i>
-                        </div>
-
-                        <div class="education-info">
-
-                            <h4>
-                                Engineering / Technical Education
-                            </h4>
-
-                            <p>
-                                Technology & Computer Applications
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-           
             <!-- CONTACT -->
 
             <div class="section">
@@ -589,6 +529,7 @@
                     <a
                         href="https://wa.me/919472146511"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="contact-btn"
                     >
                         <i class="uil uil-whatsapp"></i>
@@ -635,6 +576,7 @@
                     <a
                         href="https://www.linkedin.com/in/karankumar1903/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="social"
                         title="LinkedIn"
                     >
@@ -646,6 +588,7 @@
                     <a
                         href="https://github.com/karanBR05/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="social"
                         title="GitHub"
                     >
@@ -657,6 +600,7 @@
                     <a
                         href="https://www.researchgate.net/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="social"
                         title="ResearchGate"
                     >
@@ -683,6 +627,7 @@
             <div class="action-buttons">
 
                 <button
+                    type="button"
                     class="action-btn save-btn"
                     onclick="saveContact()"
                 >
@@ -692,6 +637,7 @@
 
 
                 <button
+                    type="button"
                     class="action-btn share-btn"
                     onclick="shareCard()"
                 >
@@ -721,7 +667,9 @@
 </div>
 
 
-<!-- TOAST -->
+<!-- =========================
+     TOAST
+========================== -->
 
 <div id="toast" class="toast">
     Contact saved successfully!
@@ -732,34 +680,72 @@
 
     /* =========================
        SAVE CONTACT
-    ========================= */
+       Karan Kumar
+       GrowCell IT Architect
+    ========================== */
 
     function saveContact() {
 
-        const vCard =
-`BEGIN:VCARD
-VERSION:3.0
-FN:Karan Kumar
-N:Kumar;Karan;;;
-ORG:IT Developer
-TITLE:IT Developer | Web Developer
-TEL;TYPE=CELL:+919472146511
-EMAIL:karankumar.19march@gmail.com
-URL:https://www.linkedin.com/in/karankumar1903/
-URL:https://github.com/karanBR05/
-END:VCARD`;
+        /*
+         * vCard contact information
+         *
+         * Name:
+         * Karan Kumar
+         *
+         * Company:
+         * GrowCell IT Architect
+         */
+
+        const vCard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "N:Kumar;Karan;;;",
+            "FN:Karan Kumar",
+            "ORG:GrowCell IT Architect",
+            "TITLE:DevOps Engineer",
+            "TEL;TYPE=CELL:+919472146511",
+            "EMAIL;TYPE=INTERNET:karankumar.19march@gmail.com",
+            "URL:https://www.linkedin.com/in/karankumar1903/",
+            "URL:https://github.com/karanBR05/",
+            "NOTE:IT Developer and Technology Enthusiast",
+            "END:VCARD"
+        ].join("\r\n");
+
+
+        /*
+         * Create vCard file
+         */
 
         const blob = new Blob(
             [vCard],
-            { type: "text/vcard" }
+            {
+                type: "text/vcard;charset=utf-8"
+            }
         );
 
+
+        /*
+         * Create temporary URL
+         */
+
         const url = URL.createObjectURL(blob);
+
+
+        /*
+         * Create download/open link
+         */
 
         const link = document.createElement("a");
 
         link.href = url;
-        link.download = "Karan-Kumar-Contact.vcf";
+        link.download = "Karan-Kumar.vcf";
+
+        /*
+         * Some mobile browsers work better when
+         * the link is added to the document first.
+         */
+
+        link.style.display = "none";
 
         document.body.appendChild(link);
 
@@ -767,9 +753,21 @@ END:VCARD`;
 
         document.body.removeChild(link);
 
-        URL.revokeObjectURL(url);
 
-        showToast("Contact card created!");
+        /*
+         * Clean up temporary object URL
+         */
+
+        setTimeout(function () {
+            URL.revokeObjectURL(url);
+        }, 1000);
+
+
+        /*
+         * Show confirmation
+         */
+
+        showToast("Karan Kumar contact created!");
     }
 
 
@@ -784,12 +782,16 @@ END:VCARD`;
             title: "Karan Kumar - Digital Visiting Card",
 
             text:
-                "Connect with Karan Kumar | IT Developer | Web Developer",
+                "Connect with Karan Kumar | DevOps Engineer | GrowCell IT Architect",
 
             url: window.location.href
 
         };
 
+
+        /*
+         * Native share support
+         */
 
         if (navigator.share) {
 
@@ -818,11 +820,65 @@ END:VCARD`;
 
     function copyPageLink() {
 
-        navigator.clipboard.writeText(
-            window.location.href
-        );
+        /*
+         * Modern Clipboard API
+         */
 
-        showToast("Card link copied!");
+        if (navigator.clipboard) {
+
+            navigator.clipboard.writeText(
+                window.location.href
+            ).then(function () {
+
+                showToast("Card link copied!");
+
+            }).catch(function () {
+
+                fallbackCopy();
+
+            });
+
+        } else {
+
+            fallbackCopy();
+
+        }
+
+    }
+
+
+    /* =========================
+       FALLBACK COPY
+    ========================== */
+
+    function fallbackCopy() {
+
+        const textArea =
+            document.createElement("textarea");
+
+        textArea.value = window.location.href;
+
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+
+        document.body.appendChild(textArea);
+
+        textArea.focus();
+        textArea.select();
+
+        try {
+
+            document.execCommand("copy");
+
+            showToast("Card link copied!");
+
+        } catch (error) {
+
+            showToast("Unable to copy link");
+
+        }
+
+        document.body.removeChild(textArea);
 
     }
 
@@ -836,11 +892,13 @@ END:VCARD`;
         const toast =
             document.getElementById("toast");
 
+
         toast.textContent = message;
 
         toast.classList.add("show");
 
-        setTimeout(() => {
+
+        setTimeout(function () {
 
             toast.classList.remove("show");
 
@@ -850,6 +908,6 @@ END:VCARD`;
 
 </script>
 
+
 </body>
 </html>
-```
